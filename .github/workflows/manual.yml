@@ -1,0 +1,63 @@
+#comment
+on:
+  push:
+    branches:
+      - main
+name: 🚀 Deploy website on push
+
+env:
+  ENV: 'production'
+  NEXT_PUBLIC_BACKEND_URL: 'https://server.consultadvance.com'
+  AUTH_KEY_SECRET: ${{vars.AUTH_KEY_SECRET}}
+  CLOUDFLARE_URL: ${{vars.CLOUDFLARE_URL}}
+  NEXT_PUBLIC_ENCRYPTION_KEY: '15UKiV2hdD20Ptl4up9WmQtTclGwqohLQWZ9Oy5gjLc='
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+
+      - name: 🖥 Use Node.js 21
+        uses: actions/setup-node@v2
+        with:
+          node-version: '21'
+
+      - name: Cache configuration
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            ${{ github.workspace }}/.next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+
+      - name: 🔨 Build Project
+        run: |
+          npm install --force
+          npm run build
+
+      - name: 📂 Copy Build Files to the server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          source: '.next'
+          target: ~/consultancy/
+
+      - name: ♻️ Restart the server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            cd ~/consultancy &&
+            git pull &&
+            touch ~/consultancy/tmp/restart.txt

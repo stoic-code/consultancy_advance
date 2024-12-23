@@ -1,0 +1,40 @@
+import { Tags } from '@/constants/blogs' // Has length of 6
+
+export const data = [
+  {
+    id: 4,
+    author: 'Emily Johnson',
+    views: 90,
+    createdAt: Date.now() - 259200000,
+    readTime: 15,
+    title: 'The Beauty of Astronomy: Exploring the Cosmos',
+    desc: 'Astronomy is the study of celestial objects such as stars, planets, and galaxies. Embark on a journey through the cosmos and marvel at the wonders of the universe.',
+    image: 'https://picsum.photos/800',
+    body: '<h2><i><u><b>The Solar System:</b></u></i></h2><ul><li>Mercury</li><li>Venus</li><li>Earth</li><li>Mars</li><li>Jupiter</li><li>Saturn</li><li>Uranus</li><li>Neptune</li></ul><h2><i><u><b>Deep-Space Exploration:</b></u></i></h2><ol><li>Hubble Space Telescope</li><li>Mars Rovers</li><li>Voyager Probes</li></ol><p>From the ancient civilizations who tracked the movement of celestial bodies to modern-day astronomers using cutting-edge telescopes and spacecraft, humanity has always been fascinated by the stars. Astronomy allows us to explore the vastness of space and gain insights into the origins and evolution of the universe.</p><p>Through telescopes like the Hubble Space Telescope, we have peered deep into distant galaxies, witnessing the birth and death of stars. Robotic explorers like the Mars Rovers have traversed the Martian surface, searching for signs of life and unlocking the mysteries of the Red Planet.</p><p>As technology continues to advance, our understanding of the cosmos will deepen, revealing new wonders and posing new questions about the nature of the universe.</p>',
+    tags: [Tags.Scholarships, Tags.StudyAbroad, Tags.Technology],
+  },
+  {
+    id: 5,
+    author: 'Michael Brown',
+    views: 120,
+    createdAt: Date.now() - 345600000,
+    readTime: 9,
+    title: 'The Art of Cooking: Culinary Masterpieces from Around the World',
+    desc: 'Cooking is both an art and a science, blending flavors, textures, and techniques to create delicious dishes. Explore the world of culinary arts and discover mouthwatering recipes.',
+    image: 'https://picsum.photos/900',
+    body: `<h3><u><b><i>Popular Ingredients:</i></b></u></h3><ul><li>Tomatoes</li><li>Garlic</li><li>Onions</li><li>Herbs and Spices</li></ul><h3><u><b><i>Culinary Techniques:</i></b></u></h3><ol><li>Sautéing</li><li>Braising</li><li>Grilling</li></ol><p>From the aromatic spices of Indian cuisine to the savory flavors of Italian pasta dishes, food has the power to transport us to different cultures and regions of the world. Culinary arts encompass a wide range of cooking styles and traditions, each with its own unique ingredients and techniques.</p><p>Whether you're a novice cook experimenting in the kitchen or a seasoned chef crafting gourmet creations, cooking is a creative outlet that brings people together and stimulates the senses. With a dash of creativity and a sprinkle of passion, anyone can master the art of cooking and create culinary masterpieces to delight the palate.</p><p>Join us on a culinary journey around the world as we explore the rich diversity of global cuisine and celebrate the joy of cooking.</p>`,
+    tags: [Tags.StudyAbroad, Tags.Technology],
+  },
+  {
+    id: 6,
+    author: 'Sophia Lee',
+    views: 80,
+    createdAt: Date.now() - 432000000,
+    readTime: 11,
+    title: 'The Marvels of Marine Biology: Exploring the Ocean Depths',
+    desc: 'Marine biology is the study of marine organisms and ecosystems, from microscopic plankton to majestic whales. Dive into the underwater world and discover the wonders of the sea.',
+    image: 'https://picsum.photos/1000',
+    body: `<h2><u><i><b>Ecological Importance:</b></i></u></h2><ul><li>Coral Reefs</li><li>Mangrove Forests</li><li>Kelp Forests</li></ul><h2><u><i><b>Marine Life:</b></i></u></h2><ol><li>Sharks</li><li>Dolphins</li><li>Jellyfish</li></ol><p>The ocean covers more than 70% of the Earth's surface and is home to a diverse array of life forms, many of which have yet to be discovered. Marine biologists study everything from tiny microorganisms to massive whales, seeking to understand the complex ecosystems that support life in the sea.</p><p>Coral reefs, often called the "rainforests of the sea," are among the most biodiverse habitats on the planet, teeming with colorful fish, crustaceans, and other marine creatures. Mangrove forests and kelp forests provide essential nursery grounds for young fish and serve as critical coastal buffers against erosion and storm surges.</p><p>By studying marine biology, scientists gain insights into the interconnectedness of marine ecosystems and the impact of human activities on the ocean environment. Through conservation efforts and sustainable practices, we can protect and preserve the marvels of marine life for future generations to enjoy.</p>`,
+    tags: [Tags.Technology, Tags.TestPreparation],
+  },
+]

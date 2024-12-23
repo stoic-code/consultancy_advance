@@ -1,0 +1,17 @@
+.blog {
+  h1 {
+    @apply text-3xl font-semibold;
+  }
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+  h3 {
+    @apply text-xl font-semibold;
+  }
+  ul {
+    @apply list-inside list-disc space-y-2 py-4;
+  }
+  ol {
+    @apply list-inside  list-decimal space-y-2 py-4;
+  }
+}
